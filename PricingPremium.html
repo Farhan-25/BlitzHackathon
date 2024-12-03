@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payment Page - OnRoadMechanix</title>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="PricingPremium.css"/>
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="logo">OnRoadMechanix</div>
+        <nav>
+            <ul>
+                <li><a href="Home.html">Home</a></li>
+                <li><a href="#">About us</a></li>
+                <li><a href="#">Contact us</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="Login.html">Login/Signup</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <section class="pricing-section">
+            <h2>Confirm Your Purchase</h2>
+            <div class="pricing-card">
+                <h3>Package: Premium</h3>
+                <p class="price">₹8000</p>
+                <p>You are about to make a purchase of ₹8000 for the Premium Package. Select the duration and click below to confirm your selection.</p>
+            </div>
+
+            <form id="payment-form">
+                <label for="months">Select Subscription Duration (in months):</label>
+                <select id="months" name="months">
+                    <option value="1">1 Month - ₹8000</option>
+                    <option value="2">2 Months - ₹16000</option>
+                    <option value="3">3 Months - ₹24000</option>
+                    <option value="6">6 Months - ₹48000</option>
+                    <option value="12">12 Months - ₹96000</option>
+                </select>
+
+                <br>
+
+                <p>Total Amount: <span id="total-amount">₹8000</span></p>
+            </form>
+
+            <div class="payment-btn-container">
+                <button class="cta-button" id="proceed-to-payment">Confirm Purchase</button>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 OnRoadMechanix. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const monthsDropdown = document.getElementById('months');
+        const totalAmountSpan = document.getElementById('total-amount');
+        const proceedButton = document.getElementById('proceed-to-payment');
+
+        monthsDropdown.addEventListener('change', function () {
+            const selectedMonths = parseInt(this.value);
+            const totalAmount = selectedMonths * 8000;  
+            totalAmountSpan.textContent = `₹${totalAmount}`;
+        });
+
+        proceedButton.onclick = function () {
+            const selectedMonths = parseInt(monthsDropdown.value);
+            const totalAmount = selectedMonths * 8000; 
+
+            alert(`You have selected ${selectedMonths} month(s). Total Amount: ₹${totalAmount}`);
+            
+            
+        };
+    </script>
+
+</body>
+
+</html>
